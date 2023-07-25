@@ -65,7 +65,7 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use and 
 
 ## Contact
 
-If you have any questions or need further information, please don't hesitate to contact us at [your-email@example.com](mailto:kyawkingston@gmail.com).
+If you have any questions or need further information, please don't hesitate to contact me at [kyawkingston@gmail.com](mailto:kyawkingston@gmail.com).
 
 Happy note-taking with Idea Wall!
 
