@@ -26,28 +26,30 @@ Follow the steps below to set up the Idea Wall backend on your local machine:
 
 1. **Clone the repository:** Start by cloning this GitHub repository to your local machine using the following command:
 
-git clone https://github.com/UTYCC-KyawZT/ideawall-backend.git
+```git clone https://github.com/UTYCC-KyawZT/ideawall-backend.git```
 
 
 2. **Install dependencies:** Change into the project's directory and install the required dependencies using npm (Node Package Manager):
 
+```
 cd idea-wall-backend
 npm install
-
+```
 
 3. **Configure the database:** Set up a database of your choice (e.g., MongoDB, MySQL, or PostgreSQL) and create the necessary tables/collections.
 
 4. **Environment variables:** Create a `.env` file in the root directory and specify the required environment variables. For example, if using MongoDB, your `.env` file might look like this:
 
+```
 DB_CONNECTION=mongodb+srv://walls_admin:xxxxx@walls.xxxxx.mongodb.net/
 ACCESS_TOKEN_SECRET=xxxxxxx
 REFRESH_TOKEN_SECRET=xxxxxxx
-
+```
 
 5. **Run the server:** Start the backend server using the following command:
-
+```
 npm start
-
+```
 
 6. **Backend is up and running:** The backend is now running on the specified port, and it's ready to handle API requests from the Idea Wall frontend.
 
