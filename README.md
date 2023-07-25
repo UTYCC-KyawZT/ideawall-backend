@@ -36,7 +36,7 @@ cd idea-wall-backend
 npm install
 ```
 
-3. **Configure the database:** Set up a database of your choice (e.g., MongoDB, MySQL, or PostgreSQL) and create the necessary tables/collections.
+3. **Configure the database:** Set up a mongo db or you may choose different database such as MySQL and PostgreSQL. As I created the models inside the /models folder, it should automatically create the necessary tables/collections when call the APIs.
 
 4. **Environment variables:** Create a `.env` file in the root directory and specify the required environment variables. For example, if using MongoDB, your `.env` file might look like this:
 
@@ -65,7 +65,7 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use and 
 
 ## Contact
 
-If you have any questions or need further information, please don't hesitate to contact us at [your-email@example.com](mailto:your-email@example.com).
+If you have any questions or need further information, please don't hesitate to contact us at [your-email@example.com](mailto:kyawkingston@gmail.com).
 
 Happy note-taking with Idea Wall!
 
