@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Wall = require("../models/Walls");
+const User = require("../models/Users");
 
+// ** Variables
 const message = {
   0: "Walls retrieved successfully",
   1: "Wall created successfully",
@@ -12,6 +14,7 @@ const message = {
   6: "Wall not deleted",
   7: "Wall not created",
   8: "Wall not retrieved",
+  9: "User not found",
 };
 
 const result = (success, message, data) => {
@@ -22,6 +25,7 @@ const result = (success, message, data) => {
   };
 };
 
+// ** Routes
 // Get all the walls
 router.get("/", async (req, res) => {
   try {
@@ -45,8 +49,16 @@ router.get("/:wallId", async (req, res) => {
 // Create a wall
 router.post("/", async (req, res) => {
   console.log(req.body);
+
+  // Validate the user
+  const user = User.findById(req.body.owner_id);
+  if (!user) {
+    return res.status(404).json(result(false, message[9], null));
+  }
+
   const wall = new Wall({
     name: req.body.name,
+    owner_id: req.body.owner_id,
     description: req.body.description,
     share_user: req.body.share_user,
   });

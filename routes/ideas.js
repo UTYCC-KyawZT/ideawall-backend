@@ -3,6 +3,7 @@ const router = express.Router();
 const Idea = require("../models/Ideas");
 const Wall = require("../models/Walls");
 
+// ** Variables
 const message = {
   0: "Ideas retrieved successfully",
   1: "Idea created successfully",
@@ -24,6 +25,7 @@ const result = (success, message, data) => {
   };
 };
 
+// ** Routes
 // Get all the ideas
 router.get("/", async (req, res) => {
   try {
