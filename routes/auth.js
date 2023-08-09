@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/Users");
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 
 // ** Variables
 let refreshTokens = []; // store refresh tokens in memory for temporary use
@@ -71,7 +71,7 @@ router.post("/login", async (req, res) => {
     }
 
     // Verify the provided password with the hashed password stored in the database
-    const passwordMatch = await bcrypt.compare(password, user.password);
+    const passwordMatch = await bcryptjs.compare(password, user.password);
     if (!passwordMatch) {
       return res.status(401).json(result(false, message[11], null));
     }
@@ -153,7 +153,7 @@ router.post("/register", async (req, res) => {
     const refreshToken = refreshAccessToken({ email: email });
 
     // Hash the password before storing it in the database
-    const hashedPassword = await bcrypt.hash(password, 10); // You can adjust the salt rounds as needed
+    const hashedPassword = await bcryptjs.hash(password, 10); // You can adjust the salt rounds as needed
 
     // Create a new user in the database
     const newUser = new User({

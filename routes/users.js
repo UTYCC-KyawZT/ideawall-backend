@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/Users");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 
 // ** Variables
 const message = {
@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
 
 // Update a user
 router.patch("/:userId", async (req, res) => {
-  const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  const hashedPassword = await bcryptjs.hash(req.body.password, 10);
   try {
     const user = await User.findById(req.params.userId);
     if (!user) {

@@ -20,52 +20,48 @@ The backend of Idea Wall is built using the following technologies:
 - **Express.js:** A fast and flexible web application framework for Node.js, used to build the RESTful APIs for Idea Wall.
 - **Database:** A suitable database system is utilized to store users' data, such as MongoDB, MySQL, or PostgreSQL (You can choose the one that best fits your needs).
 
-## Installation
+## Getting Started
 
-Follow the steps below to set up the Idea Wall backend on your local machine:
+To run the Idea Wall Backend using Docker, follow these steps:
 
-1. **Clone the repository:** Start by cloning this GitHub repository to your local machine using the following command:
-
+1. **Clone the Repository:**
 ```git clone https://github.com/UTYCC-KyawZT/ideawall-backend.git```
+2. **Build the Docker Image:**
+3. **Run the Docker Container:**
 
+This will start the Idea Wall Backend inside a Docker container and expose it on port 8000.
 
-2. **Install dependencies:** Change into the project's directory and install the required dependencies using npm (Node Package Manager):
+## Dependencies
 
-```
-cd idea-wall-backend
-npm install
-```
+The Idea Wall Backend uses various Node.js packages to provide its functionality. These packages include:
 
-3. **Configure the database:** Set up a mongo db or you may choose different database such as MySQL and PostgreSQL. As I created the models inside the /models folder, it should automatically create the necessary tables/collections when call the APIs.
+- [bcryptjs@2.4.3](https://www.npmjs.com/package/bcryptjs): For secure password hashing.
+- [body-parser@1.20.2](https://www.npmjs.com/package/body-parser): To parse incoming request bodies.
+- [dotenv@16.3.1](https://www.npmjs.com/package/dotenv): For managing environment variables.
+- [express@4.18.2](https://www.npmjs.com/package/express): A web application framework for Node.js.
+- [jsonwebtoken@9.0.1](https://www.npmjs.com/package/jsonwebtoken): For generating and verifying JSON Web Tokens.
+- [mongoose@7.4.0](https://www.npmjs.com/package/mongoose): A MongoDB object modeling tool.
+- [nodemon@3.0.1](https://www.npmjs.com/package/nodemon): A utility that automatically restarts the server during development.
 
-4. **Environment variables:** Create a `.env` file in the root directory and specify the required environment variables. For example, if using MongoDB, your `.env` file might look like this:
+## Configuration
 
+The backend uses environment variables for configuration. Make sure to create a `.env` file in the root directory and set your environment variables there.
 ```
 DB_CONNECTION=mongodb+srv://walls_admin:xxxxx@walls.xxxxx.mongodb.net/
 ACCESS_TOKEN_SECRET=xxxxxxx
 REFRESH_TOKEN_SECRET=xxxxxxx
 ```
 
-5. **Run the server:** Start the backend server using the following command:
-```
-npm start
-```
+## Contributions
 
-6. **Backend is up and running:** The backend is now running on the specified port, and it's ready to handle API requests from the Idea Wall frontend.
-
-Please note that this backend project only provides the server-side functionality for the Idea Wall application. To use the full application, you'll also need to set up the frontend, which is available in a separate GitHub repository.
-
-## Contribute
-
-We welcome contributions to Idea Wall! If you find any issues or want to add new features, feel free to submit a pull request. We'll be happy to review and merge them.
+Contributions to this project are welcome! If you encounter any issues or have suggestions for improvements, please feel free to submit a pull request or create an issue.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). Feel free to use and modify the code as per the terms of the license.
+This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
 If you have any questions or need further information, please don't hesitate to contact me at [kyawkingston@gmail.com](mailto:kyawkingston@gmail.com).
 
 Happy note-taking with Idea Wall!
-
