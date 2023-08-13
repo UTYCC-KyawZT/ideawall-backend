@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const app = express();
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const User = require("./models/Users");
 require("dotenv/config");
@@ -32,6 +33,8 @@ const ideasRoute = require("./routes/ideas");
 const authRoute = require("./routes/auth");
 
 // ** Middleware
+// Configure CORS
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/users", authenticateToken, usersRoute);
 app.use("/walls", authenticateToken, wallsRoute);
