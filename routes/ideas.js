@@ -37,9 +37,9 @@ router.get("/", async (req, res) => {
 });
 
 // Get a specific idea
-router.get("/:ideaId", async (req, res) => {
+router.get("/:wallId", async (req, res) => {
   try {
-    const idea = await Idea.findById(req.params.ideaId);
+    const idea = await Idea.find({ wall_id: req.params.wallId });
     res.json(result(true, message[0], idea));
   } catch (err) {
     res.json(result(false, err, err));
