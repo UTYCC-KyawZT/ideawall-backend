@@ -41,6 +41,8 @@ The Idea Wall Backend uses various Node.js packages to provide its functionality
 - [express@4.18.2](https://www.npmjs.com/package/express): A web application framework for Node.js.
 - [jsonwebtoken@9.0.1](https://www.npmjs.com/package/jsonwebtoken): For generating and verifying JSON Web Tokens.
 - [mongoose@7.4.0](https://www.npmjs.com/package/mongoose): A MongoDB object modeling tool.
+- [cors@2.8.5](https://www.npmjs.com/package/cors): CORS is for providing a Connect/Express middleware that can be used to enable CORS with various options
+- [morgan@1.10.0](https://wwww.npmjs.com/package/morgan): HTTP request logger middleware for node.js
 - [nodemon@3.0.1](https://www.npmjs.com/package/nodemon): A utility that automatically restarts the server during development.
 
 ## Configuration
