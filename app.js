@@ -5,6 +5,9 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const User = require("./models/Users");
+const morgan = require("morgan");
+const fs = require("fs");
+const port = 8000;
 require("dotenv/config");
 
 // ** Variables
@@ -17,6 +20,14 @@ const message = {
   5: "This is home baby!",
   6: "Token invalid",
 };
+
+// create a write stream (in append mode)
+const accessLogStream = fs.createWriteStream(
+  "./logs/" + getFormattedDate() + "_access.log",
+  {
+    flags: "a",
+  }
+);
 
 const result = (success, message, data) => {
   return {
@@ -33,7 +44,7 @@ const ideasRoute = require("./routes/ideas");
 const authRoute = require("./routes/auth");
 
 // ** Middleware
-// Configure CORS
+app.use(morgan("combined", { stream: accessLogStream })); // logger
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/users", authenticateToken, usersRoute);
@@ -47,6 +58,17 @@ app.get("/", (req, res) => {
 });
 
 // ** Functions
+function getFormattedDate() {
+  const today = new Date();
+
+  const day = String(today.getDate()).padStart(2, "0");
+  const month = String(today.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+  const year = today.getFullYear();
+
+  const formattedDate = `${day}-${month}-${year}`;
+  return formattedDate;
+}
+
 async function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
@@ -85,4 +107,6 @@ async function authenticateToken(req, res, next) {
 // ** Connect DB
 mongoose.connect(process.env.DB_CONNECTION);
 
-app.listen(8000);
+app.listen(port, () => {
+  console.log(`Server is listening on port: ${port}`);
+});

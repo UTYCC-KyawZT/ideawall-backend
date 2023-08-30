@@ -11,5 +11,6 @@ RUN npm i jsonwebtoken@9.0.1
 RUN npm i mongoose@7.4.0
 RUN npm i nodemon@3.0.1
 RUN npm i cors@2.8.5
+RUN npm i morgan@1.10.0
 EXPOSE 8000
 CMD node app.js
